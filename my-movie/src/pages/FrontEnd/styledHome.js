@@ -49,6 +49,8 @@ export const SelectButton = styled.button`
   border: 0;
   cursor: pointer;
 
+  transition: 0.3s;
+  
   &:focus{
     background-color:#70CAFF;
   }
