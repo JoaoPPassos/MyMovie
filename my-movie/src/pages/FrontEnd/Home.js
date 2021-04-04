@@ -1,7 +1,11 @@
 import {useDispatch,useSelector} from 'react-redux';
 import {COUNT} from '../../Store/type/types';
 import {getValue} from '../Services/getValue';
-import {Background,Logo,SearchBar,DivSearchBar} from './styledHome';
+import {Background,
+        Logo,
+        SearchBar,
+        DivSearchBar,
+        SelectButton} from './styledHome';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -155,6 +159,18 @@ export default function Home(){
           />
         </SearchBar>
       </DivSearchBar>
+      <SelectButton id = '0'>
+        Todos
+      </SelectButton>
+      <SelectButton id ='1'>
+        Filme
+      </SelectButton>
+      <SelectButton id = '2'>
+        Série
+      </SelectButton>
+      <SelectButton id = '3'>
+        Autor
+      </SelectButton>
     </Background>
   );
 };

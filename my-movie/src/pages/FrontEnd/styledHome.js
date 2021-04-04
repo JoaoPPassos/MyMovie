@@ -36,3 +36,20 @@ export const SearchBar = styled.div`
     outline: 0;
   }
 `;
+
+export const SelectButton = styled.button`
+  height: 2em;
+  width: auto;
+  padding: 0 20px 0 20px;
+  font-size: 18px;
+  margin: 10px 20px 0 20px;
+  border-radius: 5em;
+  background-color: #006CBE;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+
+  &:focus{
+    background-color:#70CAFF;
+  }
+`;
