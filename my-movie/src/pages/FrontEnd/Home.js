@@ -1,6 +1,6 @@
 import {useDispatch,useSelector} from 'react-redux';
-import {COUNT} from '../../Store/type/types';
-import {getValue} from '../Services/getValue';
+import React,{useEffect,useState} from 'react';
+import {MOVIES} from '../../Store/type/types';
 import {Background,
         Logo,
         SearchBar,
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Home(){
-  const contador = useSelector(getValue);
   const dispatch = useDispatch();  
   const top100Films = [
     { title: 'The Shawshank Redemption', year: 1994 },
@@ -121,8 +120,14 @@ export default function Home(){
     { title: '3 Idiots', year: 2009 },
     { title: 'Monty Python and the Holy Grail', year: 1975 },
   ];
-
+  const [movies, setMovies] = useState("");
   const classes = useStyles();
+
+  useEffect(() =>{
+    const timeOutToGetMovies = setTimeout(()=>{
+    },1000);
+    return () => clearTimeout(timeOutToGetMovies);
+  },[movies]);
 
   return(
     <Background>
@@ -140,7 +145,9 @@ export default function Home(){
             options={top100Films.map((option) => option.title)}
             renderInput={(params) => (
               <div ref={params.InputProps.ref}>
-                <input style={{
+                <input 
+                {...params.inputProps}
+                style={{
                   height: '3rem',
                   width: '100%',
                   fontSize: '18px',
@@ -151,8 +158,9 @@ export default function Home(){
                   boxShadow: '0',
                   outline: '0',
                 }} 
+                value={movies}
+                onChange={ev => setMovies(ev.target.value)}
                 type='text'
-                {...params.inputProps}
                 />
               </div>
             )}

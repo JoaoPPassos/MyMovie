@@ -1,4 +1,4 @@
-export const COUNT = Object.freeze({
-  DECREMENT: 'counter/decremented',
-  INCREMENT: 'counter/incremented'
+export const TYPES = Object.freeze({
+  ID: 'set/ID',
+  MOVIES:'set/Movies',
 }); 
