@@ -26,36 +26,24 @@ export default function Home() {
   const [category, setCategory] = useState(0);
   const classes = useStyles();
 
-  const filterMovieList = [];
+  const setFilter = (movie) => {
+    switch (category) {
+      case 1:
+        return movie.id[0] === 't';
+      case 2:
+        return movie.id[0] === 'n';
+      default:
+        return movie.id !== '';
+    }
+  }
 
   useEffect(() => {
     const timeOutToGetMovies = setTimeout(() => {
       if (movie !== "")
         dispatch(requestAutoCompleteMovies(movie));
-
     }, 1000);
     return () => clearTimeout(timeOutToGetMovies);
   }, [movie]);
-
-  for (let i = 0, j = 0; i < movieList.length; i++) {
-    switch (category) {
-      case 1:
-        if (movieList[i].id[0] === 't') {
-          filterMovieList[j] = movieList[i].l;
-        }
-        j++;
-        break;
-      case 2:
-        if (movieList[i].id[0] === 'n') {
-          filterMovieList[j] = movieList[i].l;
-        }
-        j++;
-        break;
-      default:
-        filterMovieList[j] = movieList[i].l;
-        j++;
-    }
-  }
 
   return (
     <Background>
@@ -73,7 +61,7 @@ export default function Home() {
             renderOption={(op) => <span onClick={(e) => {
               setMovies(e.target.outerText)
             }}>{op}</span>}
-            options={filterMovieList.map((movie) => movie)}
+            options={movieList.filter(setFilter).map((movie) => movie.l)}
             renderInput={(params) => (
               <div ref={params.InputProps.ref}>
                 <input
@@ -105,7 +93,7 @@ export default function Home() {
         Titulos
       </SelectButton>
       <SelectButton id='2' onClick={() => { setCategory(2) }}>
-        Autor
+        Ator/Atora
       </SelectButton>
     </Background>
   );
