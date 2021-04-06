@@ -5,7 +5,8 @@ import {
   Logo,
   SearchBar,
   DivSearchBar,
-  SelectButton
+  SelectButton,
+  SearchButton
 } from './styledHome';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,14 +27,14 @@ export default function Home() {
   const [category, setCategory] = useState(0);
   const classes = useStyles();
 
-  const setFilter = (movie) => {
+  const setFilter = (mov) => {
     switch (category) {
       case 1:
-        return movie.id[0] === 't';
+        return mov.id[0] === 't';
       case 2:
-        return movie.id[0] === 'n';
+        return mov.id[0] === 'n';
       default:
-        return movie.id !== '';
+        return mov.id !== '';
     }
   }
 
@@ -49,7 +50,7 @@ export default function Home() {
     <Background>
       <Logo src='./Logo1.png' alt='logo' />
       <DivSearchBar>
-        <span style={{ height: '2.7rem', marginLeft: '3rem' }}>
+        <span style={{ height: '1.5rem', marginLeft: '2.4rem' }}>
           <img src='./loupe.png' alt='search' style={{ height: '100%' }} />
         </span>
         <SearchBar>
@@ -85,6 +86,9 @@ export default function Home() {
             )}
           />
         </SearchBar>
+        <SearchButton>
+          <img src='./loupe.png' alt='search' style={{ height: '60%' }} />
+        </SearchButton>
       </DivSearchBar>
       <SelectButton id='0' onClick={() => { setCategory(0) }}>
         Todos

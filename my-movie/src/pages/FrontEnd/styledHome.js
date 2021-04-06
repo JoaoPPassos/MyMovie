@@ -37,6 +37,23 @@ export const SearchBar = styled.div`
   }
 `;
 
+export const SearchButton = styled.button`
+  height: 100%;
+  width: 8rem;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-color: #006CBE;
+  font-size: 18px;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  align-content: center;
+
+  &:hover{
+    background-color: #70CAFF;
+  }
+`;
+
 export const SelectButton = styled.button`
   height: 2em;
   width: auto;
