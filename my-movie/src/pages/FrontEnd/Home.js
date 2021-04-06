@@ -9,8 +9,8 @@ import {
 } from './styledHome';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
-import { requestAutoCompleteMovies } from '../../Store/actions';
-import { getValue } from '../../Store/getValue';
+import { requestAutoCompleteMovies } from '../../Store/ducks/getMovieList/actions';
+import { getValue } from '../../Store/ducks/getMovieList/select';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,7 +47,6 @@ export default function Home() {
             freeSolo
             style={{ height: '5rem' }}
             renderOption={(op) => <span onClick={(e) => {
-              console.log(e)
               setMovies(e.target.outerText)
             }}>{op}</span>}
             options={movieList.map((movie) => movie.l)}

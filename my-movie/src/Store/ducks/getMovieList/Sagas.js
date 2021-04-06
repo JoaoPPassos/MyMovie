@@ -1,7 +1,7 @@
 import {call, put,takeLatest} from 'redux-saga/effects';
 import {successAutoCompleteMovies} from './actions';
-import {MOVIE} from './type/types';
-import {AutoCompleteGetMovie} from '../Services/api';
+import {MOVIE} from './types';
+import {AutoCompleteGetMovie} from '../../../Services/api';
 
 export default function* principal(){
   yield takeLatest(MOVIE.REQUESTLIST, loadMovies);

@@ -1,4 +1,4 @@
-import {MOVIE} from '../Store/type/types';
+import {MOVIE} from './types';
 
 export const requestAutoCompleteMovies = (movie) => {
   return {

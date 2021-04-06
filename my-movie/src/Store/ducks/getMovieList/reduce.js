@@ -1,11 +1,11 @@
-import { MOVIE } from './type/types';
+import { MOVIE } from './types';
 
 const INITIAL_STATE = {
   id: null,
   movies: []
 }
 
-function Reducer(state = INITIAL_STATE, action) {
+export default function getMovieList(state = INITIAL_STATE, action) {
   switch (action.type) {
     case MOVIE.ID:
       return {
@@ -24,5 +24,3 @@ function Reducer(state = INITIAL_STATE, action) {
       return state
   }
 }
-
-export default Reducer;
