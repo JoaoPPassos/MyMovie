@@ -1,20 +1,25 @@
+import { MOVIE } from './type/types';
+
 const INITIAL_STATE = {
-  id:null,
-  movies:[]
+  id: null,
+  movies: []
 }
 
 function Reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'set/ID':
-      return{
+    case MOVIE.ID:
+      return {
         ...state,
-        id: state.id 
+        id: state.id
       }
-    case 'set/Movies':
-      return{
+    case MOVIE.SUCCESSLIST:
+      const data = action.payload.data.d;
+
+      return {
         ...state,
-        movies: state.movies
+        movies: data ?? []
       }
+
     default:
       return state
   }

@@ -1,16 +1,20 @@
-import {call, put} from 'redux-saga/effects';
-import api from '../Services/api';
-import TYPES from '../Store/type/types';
+import {call, put,takeLatest} from 'redux-saga/effects';
+import {successAutoCompleteMovies} from './actions';
+import {MOVIE} from './type/types';
+import {AutoCompleteGetMovie} from '../Services/api';
 
-import getMovies from './actions';
+export default function* principal(){
+  yield takeLatest(MOVIE.REQUESTLIST, loadMovies);
+}
 
-export function load(){
+function* loadMovies({payload}){
+  console.log("entrou no load movies")
   try {
-    const response = yield call(api);
+    const response = yield call(AutoCompleteGetMovie,payload.movie);
 
-    yield put(getMovies(response))
+    yield put(successAutoCompleteMovies(response));
   } catch (err) {
-    
+
   }
 }
 

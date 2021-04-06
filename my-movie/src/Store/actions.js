@@ -1,4 +1,19 @@
-import {action} from 'typesafe-actions';
-import TYPES from '../Store/type/types';
+import {MOVIE} from '../Store/type/types';
 
-export const getMovies = (state) => action(TYPES.setMovies);
+export const requestAutoCompleteMovies = (movie) => {
+  return {
+    type:MOVIE.REQUESTLIST,
+    payload:{
+      movie
+    }
+  };
+};
+
+export const successAutoCompleteMovies = (data) => {
+  return {
+    type:MOVIE.SUCCESSLIST,
+    payload:{
+      data
+    }
+  };
+};

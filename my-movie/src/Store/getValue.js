@@ -1,3 +1,3 @@
 export function getValue(state){
-  return state;
+  return state.movies;
 }
