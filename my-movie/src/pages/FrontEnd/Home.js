@@ -23,15 +23,39 @@ export default function Home() {
   const movieList = useSelector(getValue);
   const dispatch = useDispatch();
   const [movie, setMovies] = useState("")
-
+  const [category, setCategory] = useState(0);
   const classes = useStyles();
+
+  const filterMovieList = [];
 
   useEffect(() => {
     const timeOutToGetMovies = setTimeout(() => {
-      dispatch(requestAutoCompleteMovies(movie));
+      if (movie !== "")
+        dispatch(requestAutoCompleteMovies(movie));
+
     }, 1000);
     return () => clearTimeout(timeOutToGetMovies);
   }, [movie]);
+
+  for (let i = 0, j = 0; i < movieList.length; i++) {
+    switch (category) {
+      case 1:
+        if (movieList[i].id[0] === 't') {
+          filterMovieList[j] = movieList[i].l;
+        }
+        j++;
+        break;
+      case 2:
+        if (movieList[i].id[0] === 'n') {
+          filterMovieList[j] = movieList[i].l;
+        }
+        j++;
+        break;
+      default:
+        filterMovieList[j] = movieList[i].l;
+        j++;
+    }
+  }
 
   return (
     <Background>
@@ -49,7 +73,7 @@ export default function Home() {
             renderOption={(op) => <span onClick={(e) => {
               setMovies(e.target.outerText)
             }}>{op}</span>}
-            options={movieList.map((movie) => movie.l)}
+            options={filterMovieList.map((movie) => movie)}
             renderInput={(params) => (
               <div ref={params.InputProps.ref}>
                 <input
@@ -74,16 +98,13 @@ export default function Home() {
           />
         </SearchBar>
       </DivSearchBar>
-      <SelectButton id='0'>
+      <SelectButton id='0' onClick={() => { setCategory(0) }}>
         Todos
       </SelectButton>
-      <SelectButton id='1'>
-        Filme
+      <SelectButton id='1' onClick={() => { setCategory(1) }}>
+        Titulos
       </SelectButton>
-      <SelectButton id='2'>
-        Série
-      </SelectButton>
-      <SelectButton id='3'>
+      <SelectButton id='2' onClick={() => { setCategory(2) }}>
         Autor
       </SelectButton>
     </Background>

@@ -1,3 +1,3 @@
-export function getValue(state){
+export function getValue(state) {
   return state.getMovieList.movies;
 }
