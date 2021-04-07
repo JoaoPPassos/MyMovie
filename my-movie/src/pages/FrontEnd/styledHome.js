@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Background = styled.div`
   height: 100vh;
@@ -37,7 +38,7 @@ export const SearchBar = styled.div`
   }
 `;
 
-export const SearchButton = styled.button`
+export const SearchButton = styled(Link)`
   height: 100%;
   width: 8rem;
   border-top-right-radius: 5rem;
@@ -51,6 +52,10 @@ export const SearchButton = styled.button`
 
   &:hover{
     background-color: #70CAFF;
+  }
+
+  &:active{
+    background-color: #279AF1;
   }
 `;
 

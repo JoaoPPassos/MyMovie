@@ -26,6 +26,8 @@ export default function Home() {
   const [movie, setMovies] = useState("")
   const [category, setCategory] = useState(0);
   const classes = useStyles();
+  let movieInfo;
+  const [url, setUrl] = useState("");
 
   const setFilter = (mov) => {
     switch (category) {
@@ -60,6 +62,9 @@ export default function Home() {
             freeSolo
             style={{ height: '5rem' }}
             renderOption={(op) => <span onClick={(e) => {
+              movieInfo = movieList.filter(mov => mov.l === e.target.outerText);
+              setUrl(`/movie/${movieInfo[0].id}`);
+
               setMovies(e.target.outerText)
             }}>{op}</span>}
             options={movieList.filter(setFilter).map((movie) => movie.l)}
@@ -86,7 +91,7 @@ export default function Home() {
             )}
           />
         </SearchBar>
-        <SearchButton>
+        <SearchButton to={url}>
           <img src='./loupe.png' alt='search' style={{ height: '60%' }} />
         </SearchButton>
       </DivSearchBar>
@@ -97,9 +102,9 @@ export default function Home() {
         Titulos
       </SelectButton>
       <SelectButton id='2' onClick={() => { setCategory(2) }}>
-        Ator/Atora
+        Ator/Atriz
       </SelectButton>
-    </Background>
+    </Background >
   );
 };
 
