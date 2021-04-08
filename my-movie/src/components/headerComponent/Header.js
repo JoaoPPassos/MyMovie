@@ -59,13 +59,13 @@ export default function Header() {
       </LogoDiv>
       <ButtonsDiv>
         <SelectButton onClick={() => { setCategory(0) }}>
-          todos
+          Todos
         </SelectButton>
         <SelectButton onClick={() => { setCategory(1) }}>
-          titulos
+          Titulos
         </SelectButton>
         <SelectButton onClick={() => { setCategory(2) }}>
-          ator/atriz
+          Ator/Atriz
         </SelectButton>
       </ButtonsDiv>
 

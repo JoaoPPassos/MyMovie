@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
   Background,
   InfoArea,
-  DivInfoArea
+  SectionInfoArea
 } from './styledMovie';
 import Header from '../../components/headerComponent/Header';
 
@@ -14,26 +14,26 @@ export default function Movie() {
   return (
     <Background>
       <Header />
-      <DivInfoArea marginTop='3.2em'>
+      <SectionInfoArea marginTop='3.2em'>
         <InfoArea className="infoMovie">
 
         </InfoArea>
-      </DivInfoArea>
+      </SectionInfoArea>
 
-      <DivInfoArea marginTop='10em' display='grid' style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+      <SectionInfoArea className="info2" marginTop='10em'>
         <InfoArea className="infoSinopse" >
 
         </InfoArea>
         <InfoArea className="infoFotos">
 
         </InfoArea>
-      </DivInfoArea>
+      </SectionInfoArea>
 
-      <DivInfoArea marginTop='10em'>
+      <SectionInfoArea marginTop='10em'>
         <InfoArea className="infoElenco">
 
         </InfoArea>
-      </DivInfoArea>
+      </SectionInfoArea>
 
     </Background>
   );

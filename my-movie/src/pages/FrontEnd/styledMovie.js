@@ -6,44 +6,51 @@ export const Background = styled.div`
   background-color: #323031;
   overflow-x: hidden;
   display: block;
+
+  .info2{
+    justify-content: space-evenly;
+    display: flex;
+  }
 `;
 
 export const InfoArea = styled.div`
   height:100%;
   width: 100%;
   background-color :#5B595A;
-  margin-left: auto;
-  margin-right: auto;
+  
 `;
 
-export const DivInfoArea = styled.div`
+export const SectionInfoArea = styled.section`
   height:auto;
   width:100%;
   margin-top: ${props => props.marginTop ?? 'auto'};
   display: ${props => props.display ?? 'block'};
-  justify-items:center;
-
+  
   .infoMovie{
     height: 60em;
-    width: 130em;
+    width: 128em;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .infoSinopse{
     height: 30em;
-    width: 58em;
+    width: 60em;
     margin: 0;
-    margin-left: 30px;
+    margin-left: 24px;
   }
 
   .infoFotos{
     height: 30em;
-    width: 58em;
+    width: 60em;
     margin: 0; 
-    margin-right: 30px;
+    margin-right: 24px;
   }
 
   .infoElenco{
     height: 40em;
     width: 130em;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;

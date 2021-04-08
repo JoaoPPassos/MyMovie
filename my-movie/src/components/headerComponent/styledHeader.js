@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Background = styled.div`
+export const Background = styled.header`
   height: 13rem;
   width: 100%;
   background-color: #0A0708;
