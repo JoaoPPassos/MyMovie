@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Icon from '../../components/Icon';
 
 export const Background = styled.div`
   height: 100vh;
@@ -31,6 +32,12 @@ export const SectionInfoArea = styled.section`
     width: 128em;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    justify-content: space-evenly;
+
+    .poster{
+      align-self: center;
+    }
   }
 
   .infoSinopse{
@@ -53,4 +60,21 @@ export const SectionInfoArea = styled.section`
     margin-left: auto;
     margin-right: auto;
   }
+`;
+
+
+export const SvgPoster = styled(Icon)`
+  height: 56em;
+  width: 48em;
+  margin-left: 32px;
+`;
+
+export const ImagePoster = styled.image`
+  height: 56em;
+  width: 48em;
+`;
+
+export const TrailerArea = styled.imager`
+  height: 32em;
+  width: 56em;
 `;
