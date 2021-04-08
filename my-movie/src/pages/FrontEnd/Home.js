@@ -41,12 +41,12 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const timeOutToGetMovies = setTimeout(() => {
+    const timeoutToGetMovies = setTimeout(() => {
       if (movie !== "")
         dispatch(requestAutoCompleteMovies(movie));
     }, 1000);
-    return () => clearTimeout(timeOutToGetMovies);
-  }, [movie]);
+    return () => clearTimeout(timeoutToGetMovies);
+  }, [movie, dispatch]);
 
   return (
     <Background>

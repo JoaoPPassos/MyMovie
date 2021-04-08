@@ -1,9 +1,9 @@
-import {MOVIE} from './types';
+import { MOVIE } from './types';
 
 export const requestAutoCompleteMovies = (movie) => {
   return {
-    type:MOVIE.REQUESTLIST,
-    payload:{
+    type: MOVIE.REQUESTLIST,
+    payload: {
       movie
     }
   };
@@ -11,8 +11,8 @@ export const requestAutoCompleteMovies = (movie) => {
 
 export const successAutoCompleteMovies = (data) => {
   return {
-    type:MOVIE.SUCCESSLIST,
-    payload:{
+    type: MOVIE.SUCCESSLIST,
+    payload: {
       data
     }
   };

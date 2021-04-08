@@ -50,7 +50,7 @@ export default function Header() {
         dispatch(requestAutoCompleteMovies(movie));
     }, 1000);
     return () => clearTimeout(timeOutToGetMovies);
-  }, [movie]);
+  }, [movie, dispatch]);
 
   return (
     <Background>
