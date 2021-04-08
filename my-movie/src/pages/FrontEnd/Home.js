@@ -60,7 +60,7 @@ export default function Home() {
             classes={classes}
             id="size-medium-standard"
             freeSolo
-            style={{ height: '5rem' }}
+            style={{ height: '5rem', fontFamily: 'serif' }}
             renderOption={(op) => <span onClick={(e) => {
               movieInfo = movieList.filter(mov => mov.l === e.target.outerText);
               setUrl(`/movie/${movieInfo[0].id}`);

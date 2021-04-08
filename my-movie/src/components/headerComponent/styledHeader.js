@@ -26,7 +26,6 @@ export const SelectButton = styled.button`
   width: ${props => props.width};
   padding: 0 20px 0 20px;
   font-size: 18px;
-  margin: 10px 20px 0 20px;
   border-radius: 5em;
   background-color: #006CBE;
   outline: 0;
@@ -42,11 +41,12 @@ export const SelectButton = styled.button`
 
 export const ButtonsDiv = styled.div`
   height: 100%;
-  width: 20em;
+  width: 30%;
   display:flex;
   align-items: center;
   flex-direction:row;
   margin-left: 13.4em;
+  justify-content:space-between;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `;
 
@@ -57,9 +57,8 @@ export const DivSearchBar = styled.div`
   background-color: #f7f7ff;
   margin: auto;
   display:flex;
-  flex-direction:row;
   align-items: center;
-  margin-left: 50em;
+  justify-content: end;
 `;
 
 export const SearchBar = styled.div`
