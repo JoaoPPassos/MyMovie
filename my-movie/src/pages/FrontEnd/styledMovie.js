@@ -74,7 +74,7 @@ export const ImagePoster = styled.image`
   width: 48em;
 `;
 
-export const TrailerArea = styled.imager`
+export const TrailerArea = styled.div`
   height: 32em;
   width: 56em;
 `;

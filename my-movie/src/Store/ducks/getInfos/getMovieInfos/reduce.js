@@ -1,7 +1,8 @@
-import { MOVIEDETAILS } from './types';
+import { MOVIEDETAILS, MOVIEVIDEOS } from './types';
 
 const INITIAL_STATE = {
-  details: {}
+  details: {},
+  videos: {}
 }
 
 export default function getMovieDetails(state = INITIAL_STATE, action) {
@@ -12,6 +13,13 @@ export default function getMovieDetails(state = INITIAL_STATE, action) {
       return {
         ...state,
         details: data ?? {}
+      }
+    case MOVIEVIDEOS.SUCCESSVIDEOS:
+      const videoList = action.payload.data;
+
+      return {
+        ...state,
+        videos: videoList ?? {}
       }
 
     default:

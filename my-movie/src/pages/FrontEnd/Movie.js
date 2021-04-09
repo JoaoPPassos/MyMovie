@@ -10,21 +10,29 @@ import {
   TrailerArea
 } from './styledMovie';
 import Header from '../../components/headerComponent/Header';
-import { requestMovieDetails } from '../../Store/ducks/getInfos/getMovieInfos/actions';
-import { getDetails } from '../../Store/ducks/getInfos/getMovieInfos/select';
+import { requestMovieDetails, requestMovieVideos } from '../../Store/ducks/getInfos/getMovieInfos/actions';
+import { getDetails, getVideos } from '../../Store/ducks/getInfos/getMovieInfos/select';
 
 export default function Movie() {
   const details = useSelector(getDetails);
+  const videos = useSelector(getVideos);
   let { id } = useParams();
   const dispatch = useDispatch();
-  const [det, setDetails] = useState("");
-  const [trailer, setTrailer] = useState
+
+  //useStates
+  const [detailsID, setDetails] = useState("");
+  const [videosID, setVideos] = useState("");
+  const [trailer, setTrailer] = useState("");
 
   useEffect(() => {
     setDetails(id);
-    if (det !== "")
-      dispatch(requestMovieDetails(det));
-  }, [det, id, dispatch])
+    setVideos(id);
+
+    if (detailsID !== "") {
+      dispatch(requestMovieDetails(detailsID));
+      dispatch(requestMovieVideos(videosID));
+    }
+  }, [detailsID, videosID, id, dispatch]);
 
   return (
     <Background>
@@ -35,6 +43,12 @@ export default function Movie() {
             <SvgPoster className="poster">
               <ImagePoster href={details.image.url} />
             </SvgPoster>
+          }
+
+          {Object.entries(videos).lenght === 0 ? null :
+            {
+
+            }
           }
         </InfoArea>
       </SectionInfoArea>

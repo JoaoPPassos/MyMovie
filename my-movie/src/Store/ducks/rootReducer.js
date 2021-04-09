@@ -5,7 +5,7 @@ import getMovieDetails from './getInfos/getMovieInfos/reduce';
 
 const rootReducer = combineReducers({
   getMovieList,
-  getMovieDetails
+  getMovieDetails,
 })
 
 export default rootReducer;

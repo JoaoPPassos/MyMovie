@@ -1,4 +1,4 @@
-import { MOVIEDETAILS } from './types';
+import { MOVIEDETAILS, MOVIEVIDEOS } from './types';
 
 export const requestMovieDetails = (id) => {
   return {
@@ -17,3 +17,21 @@ export const successMovieDetails = (data) => {
     }
   };
 };
+
+export const requestMovieVideos = (id) => {
+  return {
+    type: MOVIEVIDEOS.REQUESTVIDEOS,
+    payload: {
+      id
+    }
+  }
+}
+
+export const successMovieVideos = (data) => {
+  return {
+    type: MOVIEVIDEOS.SUCCESSVIDEOS,
+    payload: {
+      data
+    }
+  }
+}

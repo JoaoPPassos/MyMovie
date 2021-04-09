@@ -29,3 +29,14 @@ export async function getMovieDetails(id) {
     })
 }
 
+export async function getVideo(id) {
+  return fetch(`https://imdb8.p.rapidapi.com/title/get-videos?tconst=${id}&limit=25&region=US`, headers)
+    .then(res => res.json())
+    .then(result => {
+      return result
+    })
+    .catch(err => {
+      console.error(err);
+    })
+}
+
