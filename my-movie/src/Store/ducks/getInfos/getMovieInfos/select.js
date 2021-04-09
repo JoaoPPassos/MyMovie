@@ -2,6 +2,10 @@ export function getDetails(state) {
   return state.getMovieDetails.details;
 }
 
-export function getVideos(state) {
-  return state.getMovieDetails.videos;
+export function getVideosList(state) {
+  return state.getMovieDetails.videosIDS;
+}
+
+export function getTrailer(state) {
+  return state.getMovieDetails.trailer;
 }

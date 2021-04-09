@@ -30,7 +30,7 @@ export async function getMovieDetails(id) {
 }
 
 export async function getVideo(id) {
-  return fetch(`https://imdb8.p.rapidapi.com/title/get-videos?tconst=${id}&limit=25&region=US`, headers)
+  return fetch(`https://imdb8.p.rapidapi.com/title/get-videos?tconst=${id}&limit=100&region=US`, headers)
     .then(res => res.json())
     .then(result => {
       return result
@@ -40,3 +40,14 @@ export async function getVideo(id) {
     })
 }
 
+export async function getTrailer(id) {
+  return fetch(`https://imdb8.p.rapidapi.com/title/get-video-playback?viconst=${id}&region=US`, headers)
+    .then(res => res.json())
+    .then(result => {
+      return result
+    })
+    .catch(err => {
+      console.error(err)
+    })
+
+}

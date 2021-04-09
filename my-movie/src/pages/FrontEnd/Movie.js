@@ -10,12 +10,12 @@ import {
   TrailerArea
 } from './styledMovie';
 import Header from '../../components/headerComponent/Header';
-import { requestMovieDetails, requestMovieVideos } from '../../Store/ducks/getInfos/getMovieInfos/actions';
-import { getDetails, getVideos } from '../../Store/ducks/getInfos/getMovieInfos/select';
+import { requestMovieDetails, requestMovieVideos, requestMovieTrailer } from '../../Store/ducks/getInfos/getMovieInfos/actions';
+import { getDetails, getVideosList } from '../../Store/ducks/getInfos/getMovieInfos/select';
 
 export default function Movie() {
   const details = useSelector(getDetails);
-  const videos = useSelector(getVideos);
+  const videos = useSelector(getVideosList);
   let { id } = useParams();
   const dispatch = useDispatch();
 
@@ -34,6 +34,8 @@ export default function Movie() {
     }
   }, [detailsID, videosID, id, dispatch]);
 
+
+
   return (
     <Background>
       <Header />
@@ -43,12 +45,6 @@ export default function Movie() {
             <SvgPoster className="poster">
               <ImagePoster href={details.image.url} />
             </SvgPoster>
-          }
-
-          {Object.entries(videos).lenght === 0 ? null :
-            {
-
-            }
           }
         </InfoArea>
       </SectionInfoArea>

@@ -4,8 +4,14 @@ export const MOVIEDETAILS = Object.freeze({
   FAILUREDETAILS: "@Details/Failure"
 });
 
-export const MOVIEVIDEOS = Object.freeze({
-  REQUESTVIDEOS: "@Video/Request",
-  SUCCESSVIDEOS: "@Video/Success",
-  FAILUREVIDEOS: "@Video/Failure"
+export const MOVIEVIDEOSLIST = Object.freeze({
+  REQUESTVIDEOSLIST: "@Video/Request",
+  SUCCESSVIDEOSLIST: "@Video/Success",
+  FAILUREVIDEOSLIST: "@Video/Failure"
+});
+
+export const MOVIETRAILER = Object.freeze({
+  REQUESTTRAILER: "@Trailer/Request",
+  SUCCESSTRAILER: "@Trailer/Success",
+  FAILURETRAILER: "@Trailer/Failure"
 });
