@@ -12,6 +12,9 @@ import {
 import Header from '../../components/headerComponent/Header';
 import { requestMovieDetails, requestMovieVideos, requestMovieTrailer } from '../../Store/ducks/getInfos/getMovieInfos/actions';
 import { getDetails, getVideosList, getTrailer } from '../../Store/ducks/getInfos/getMovieInfos/select';
+import { Replay } from 'vimond-replay';
+import 'vimond-replay/index.css';
+
 
 export default function Movie() {
   const details = useSelector(getDetails);
@@ -23,6 +26,7 @@ export default function Movie() {
   //useStates
   const [trailerID, setTrailerID] = useState("");
   const [trailerURL, setTrailerURL] = useState("");
+
   useEffect(() => {
     dispatch(requestMovieDetails(id));
     dispatch(requestMovieVideos(id));
@@ -30,7 +34,7 @@ export default function Movie() {
 
   useEffect(() => {
     if (Object.entries(videos).length !== 0) {
-      let i = videos.resource.videos[0].id;
+      let i = videos.resource.videos[1].id;
       setTrailerID(i.substring(i.length / 2 - 1, i.length))
     }
   }, [videos])
@@ -40,6 +44,12 @@ export default function Movie() {
       dispatch(requestMovieTrailer(trailerID));
     }
   }, [trailerID])
+
+  useEffect(() => {
+    if (Object.entries(trailer).length !== 0) {
+      setTrailerURL(trailer.resource.encodings[0].playUrl)
+    }
+  }, [trailer]);
 
 
   return (
@@ -51,6 +61,14 @@ export default function Movie() {
             <SvgPoster className="poster">
               <ImagePoster href={details.image.url} />
             </SvgPoster>
+          }
+          {
+            trailerURL === "" ? null :
+              <TrailerArea>
+                <Replay
+                  source={trailerURL}
+                />
+              </TrailerArea>
           }
         </InfoArea>
       </SectionInfoArea>
