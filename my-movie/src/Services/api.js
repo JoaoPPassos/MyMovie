@@ -1,8 +1,8 @@
 const headers = {
   "method": "GET",
   "headers": {
-    'X-RapidAPI-Key': 'd356e43c6amsh9c19a440246d261p1f4b8djsncbe0e45d5fd0',
-    'X-RapidAPI-Host': 'imdb8.p.rapidapi.com'
+    'x-rapidapi-key': '3b1d3ffff5mshb39a621c5873fd2p1e8d40jsn06ea080e30ab',
+    'x-rapidapi-host': 'imdb8.p.rapidapi.com'
   }
 }
 
