@@ -7,7 +7,7 @@ import {
 const INITIAL_STATE = {
   details: {},
   videosIDS: {},
-  trailers: {}
+  trailer: {}
 }
 
 export default function getMovieDetails(state = INITIAL_STATE, action) {
@@ -28,11 +28,13 @@ export default function getMovieDetails(state = INITIAL_STATE, action) {
       }
 
     case MOVIETRAILER.SUCCESSTRAILER:
-      const trailers = action.payload.data;
+      const trailer = action.payload.data;
+
+      console.log(trailer);
 
       return {
         ...state,
-        trailers: trailers ?? {}
+        trailer: trailer ?? {}
       }
 
     default:

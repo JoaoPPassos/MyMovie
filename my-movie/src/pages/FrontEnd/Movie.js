@@ -22,16 +22,25 @@ export default function Movie() {
 
   //useStates
   const [trailerID, setTrailerID] = useState("");
-
+  const [trailerURL, setTrailerURL] = useState("");
   useEffect(() => {
     dispatch(requestMovieDetails(id));
     dispatch(requestMovieVideos(id));
   }, []);
 
   useEffect(() => {
-    //dispatch(requestMovieTrailer())
-    console.log("tem video")
+    if (Object.entries(videos).length !== 0) {
+      let i = videos.resource.videos[0].id;
+      setTrailerID(i.substring(i.length / 2 - 1, i.length))
+    }
   }, [videos])
+
+  useEffect(() => {
+    if (trailerID !== "") {
+      dispatch(requestMovieTrailer(trailerID));
+    }
+  }, [trailerID])
+
 
   return (
     <Background>
@@ -42,13 +51,6 @@ export default function Movie() {
             <SvgPoster className="poster">
               <ImagePoster href={details.image.url} />
             </SvgPoster>
-          }
-
-          {
-            Object.entries(videos).length === 0 ? null :
-              <TrailerArea>
-
-              </TrailerArea>
           }
         </InfoArea>
       </SectionInfoArea>
